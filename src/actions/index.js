@@ -7,7 +7,6 @@ export function fetchCars(searchData) {
     const { make, model } = searchData;
     const filterURL = `${ROOT_URL}make=${make}&model=${model}`;
     const request = axios.get(filterURL);
-    debugger;
     console.log('Request:', request);
 
     return {
