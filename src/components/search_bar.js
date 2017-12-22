@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchCars } from '../actions/index';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   
   constructor(props) {
     super(props);
@@ -15,11 +18,24 @@ export default class SearchBar extends Component {
 
   onFormSubmit(event) {
 		event.preventDefault();
+    const data = this.parseSearch();
+    this.props.fetchCars(data);
     this.setState({ term: '' });
-    // call an action creator to get the list of cars
-    // this.props.fetchCars(this.state.term);
 	}
-
+	
+  /**
+   * examine the search term and create an object with
+   * make, model, color, year
+   */
+  parseSearch() {
+    const searchTerm = this.state.term.split(" ");
+    const data = { 
+      make: searchTerm[0],
+      model: searchTerm[1]
+    };
+    return data;
+  }
+  
   render() {
     return (
 			<div>
@@ -38,3 +54,8 @@ export default class SearchBar extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchCars }, dispatch );
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
