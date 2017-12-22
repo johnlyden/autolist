@@ -37,11 +37,11 @@ class SearchBar extends Component {
   }
   
   render() {
-    if (this.props.cars.length) { 
-      return <div></div>
-		};
+    const componentClasses = ['row', 'search-bar'];    
+    if (this.props.cars.length) { componentClasses.push('hide'); }
+
     return (
-			<div className="row">
+			<div className={componentClasses.join(' ')}>
 				<form onSubmit={this.onFormSubmit} className="input-group">
 					<input
 						placeholder="Search for a car"
