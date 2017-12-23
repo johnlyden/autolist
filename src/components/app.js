@@ -5,8 +5,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-      <SearchBar />
-      <h2> heyyyyyy </h2>
+        <SearchBar />
       </div>
     );
   }
