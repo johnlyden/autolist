@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import CarDetail from './car_detail';
 
 class CarList extends Component {
   constructor(props) {
@@ -9,11 +10,10 @@ class CarList extends Component {
   }
 
   renderCar(carData) {
-    // debugger;
     return (
-      <div>
-        hey
-      </div>
+      <CarDetail 
+        carData={carData}
+      />
     );
   }
 

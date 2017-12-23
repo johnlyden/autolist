@@ -1,4 +1,17 @@
 module.exports = {
+  rules: [
+    {
+      test: /\.(png|jpg|gif)$/,
+      use: [
+        {
+          loader: 'url-loader',
+          options: {
+            limit: 8192
+          }
+        }
+      ]
+    }
+  ],
   entry: [
     './src/index.js'
   ],
@@ -14,6 +27,10 @@ module.exports = {
       query: {
         presets: ['react', 'es2015', 'stage-1']
       }
+    },
+    {
+      test: /\.(png|jpg)$/,
+      loader: 'url?limit=25000'
     }]
   },
   resolve: {

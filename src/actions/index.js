@@ -1,13 +1,15 @@
 import axios from 'axios';
 
-const ROOT_URL = `https://autolist-test.herokuapp.com/search?&`
 export const FETCH_CARS = 'FETCH_CARS';
+
+const ROOT_URL = 'https://autolist-test.herokuapp.com/search?&'
 
 export function fetchCars(searchData) {
     const { make, model } = searchData;
     const filterURL = `${ROOT_URL}make=${make}&model=${model}`;
-    const request = axios.get(filterURL);
-    console.log('Request:', request);
+    const request = axios.get(filterURL).catch((err) => {
+        console.log('error with the request ', err);
+    });
 
     return {
         type: FETCH_CARS,
