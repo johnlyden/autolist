@@ -14,12 +14,18 @@
 .logo-container {
   width: 100%;
   margin: 20px 0;
-  max-height: 200px;
+  /* max-heigz`ht: 200px; */
 }
 
-.logo-container.small {
-  max-height: 0px;
-  transition: max-height 500ms 500ms;  
+.logo-container img {
+  width: 100%;
+  height: auto;
+}
+
+.logo-container.small img {
+  width: 20%;
+  /* max-height: 0px; */
+  transition: width 500ms 500ms;  
 }
 
 .logo {

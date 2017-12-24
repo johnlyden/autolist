@@ -8,8 +8,7 @@ export default (props) => {
     }
     return (
       <div className={`logo-container ${myClass}`}>
-        <div className="logo">
-        </div>
+        <img src={Logo} />
       </div>
     )
 }
