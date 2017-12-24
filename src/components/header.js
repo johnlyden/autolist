@@ -7,8 +7,10 @@ export default (props) => {
       myClass="small"
     }
     return (
-      <div className={`logo-container ${myClass}`}>
-        <img src={Logo} />
+      <div className="row">
+        <div className={`logo-container col-sm-8 col-sm-offset-2 ${myClass}`}>
+          <img src={Logo} />
+        </div>
       </div>
     )
 }

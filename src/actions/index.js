@@ -16,3 +16,7 @@ export function fetchCars(searchData) {
         payload: request
     };
 }
+
+export function selectCar(id) {
+    alert(id);
+}

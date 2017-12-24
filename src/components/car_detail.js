@@ -8,13 +8,16 @@ export default class CarDetail extends Component {
 
     this.handleClick = this.handleClick.bind(this);
   }
-  handleClick() {
-    alert('hey');
+
+  handleClick(e) {
+    console.log(e);
+    const carId = e.currentTarget.id;
+    this.props.selectCar(carId);
   }
 
   render() {
     return (
-      <Card onClick={this.handleClick} 
+      <Card onClick={this.handleClick} id={this.props.id}
         >
         <div className="row">
           <div className="col-md-3 col-sm-12 thumb-container">

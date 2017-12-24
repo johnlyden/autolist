@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { selectCar } from '../actions/index';
 import CarDetail from './car_detail';
 
 class CarList extends Component {
@@ -13,6 +14,9 @@ class CarList extends Component {
     return (
       <CarDetail 
         carData={carData}
+        selectCar={this.props.selectCar}
+        key={carData.id.toString()}
+        id={carData.id}
       />
     );
   }
@@ -28,6 +32,10 @@ class CarList extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ selectCar }, dispatch);
+}
+
 function mapStateToProps(state) {
   return { 
     cars: state.cars
@@ -35,4 +43,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)(CarList);
+export default connect(mapStateToProps, mapDispatchToProps)(CarList);
