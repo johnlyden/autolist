@@ -46,7 +46,6 @@ ul {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  /* background: black; */
 }
 
 .flex-row {
@@ -60,12 +59,3 @@ ul {
   flex-direction: column;
   width: initial;
 }
-
-/* .car-card {
-  justify-content: flex-start;
-}
-
-.price {
-  display: flex;
-  flex-direction: column;
-} */
