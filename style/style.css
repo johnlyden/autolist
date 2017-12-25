@@ -2,17 +2,17 @@
   max-height: 100px;
   opacity: 1.0;
   box-sizing: border-box;
-  transition: max-height 500ms 0ms, opacity 500ms 500ms;
+  transition: max-height 1500ms 500ms, opacity 500ms 500ms;
 }
 
 .search-bar.hide {
-  transition: max-height 500ms 500ms, opacity 500ms 0ms;
+  transition: max-height 1500ms 500ms, opacity 500ms 500ms;
   opacity: 0.0;
   max-height: 0px;
 }
 
 .header-container {
-
+  margin-bottom: 20px;
 }
 
 .header-container.index {
@@ -27,33 +27,27 @@ form {
   text-align: center;
 }
 
-svg {
-  /* display: block; */
-  /* margin: 20px auto; */
-  /* width: auto; */
+form.container {
+  display: flex;
+  flex-direction: column;
 }
 
-.small svg {
-}
 .logo-container {
-  margin: 20px auto 0;
+  margin: 0 auto;
   width: 50%;
   margin-left: 25%;
-  /* margin-top: 20px;
-  margin-bottom: 20px; */
-  /* text-align: center; */
-  /* width: 100%; */
-  /* margin: 20px 0; */
-  /* max-heigz`ht: 200px; */
-  /* max-width: 50%; */
+
 }
 
 .logo-container.small {
   display: inline-block;
-  width: 20%;
-  margin-left: 10px;
-  margin-right: 10px;
-  transition: width 500ms 500ms, margin-left 500ms 1000ms;
+  width: 25%;
+  margin: 10px 10px;
+  /* margin-left: 4%;
+  margin-right: 2%;
+  margin-bottom: 20px; */
+  /* margin-right: 10px; */
+  transition: width 500ms 500ms, margin 500ms 500ms;
   /* margin-left: 0;
   text-align: left;
   transition: margin-left 500ms 500ms, tex-align 500ms 500ms; */
@@ -61,7 +55,7 @@ svg {
 
 .logo-container img {
   width: 90%;
-  height: auto;
+  /* height: auto; */
 }
 
 .logo-container.small img {
@@ -122,15 +116,26 @@ body {
 }
 
 .filter-container {
+  height: 0;
   opacity: 0;
   vertical-align: top;
   margin-top: 20px;
-  width: 77%;
+  width: 66%;
   transition: opacity 500ms 500ms;  
 }
 
 .filter-container.index {
+  height: 100%;
+  /* margin-top: 20px; */
   display: inline-block;
   opacity: 1;
-  transition: opacity 500ms 1500ms;
+  transition: opacity 500ms 1500ms, height 500ms 1500ms;
+}
+
+.rangeslider {
+  display: inline-block !important;
+}
+
+.filter-controls {
+  display: flex;
 }
