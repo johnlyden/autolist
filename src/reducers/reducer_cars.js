@@ -4,6 +4,5 @@ export default function (state = [], action) {
 		case FETCH_CARS:
 			return action.payload.data.records;
 	}
-	console.log('action received', action);
 	return state;
 }

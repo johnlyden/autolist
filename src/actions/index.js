@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const FETCH_CARS = 'FETCH_CARS';
+export const SELECT_CAR = 'SELECT_CAR';
 
 const ROOT_URL = 'https://autolist-test.herokuapp.com/search?&'
 
@@ -17,6 +18,10 @@ export function fetchCars(searchData) {
     };
 }
 
-export function selectCar(id) {
-    alert(id);
+export function selectCar(carId) {
+    
+    return {
+        type: SELECT_CAR,
+        payload: carId
+    }
 }

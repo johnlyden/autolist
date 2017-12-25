@@ -22,6 +22,9 @@ class CarList extends Component {
   }
 
   render() {
+    if (this.props.activeCar) {
+      return <div></div>
+    }
     return (
       <div>
         <ul>
@@ -38,7 +41,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return { 
-    cars: state.cars
+    cars: state.cars,
+    activeCar: state.selectedCar
   };
 }
 
