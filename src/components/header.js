@@ -1,15 +1,20 @@
 import React from 'react';
-import Logo from '../img/autolist_logo.jpg';
+import Logo from './autolist_logo';
+import FilterControl from './filter_control';
 
 export default (props) => {
-  var myClass;
+  var myClass, yoClass;
     if (props.small) {
       myClass="small"
+      yoClass="index"
     }
     return (
-      <div className="row">
-        <div className={`logo-container col-sm-8 col-sm-offset-2 ${myClass}`}>
-          <img src={Logo} />
+      <div className={`row header-container`}>
+        <div className={`logo-container ${myClass}`}>
+          <Logo />
+        </div>
+        <div className={`filter-container ${yoClass}`}>
+          <FilterControl />
         </div>
       </div>
     )

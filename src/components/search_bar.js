@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchCars } from '../actions/index';
+import Input from 'material-ui/Input';
+import { withStyles } from 'material-ui/styles';
+import Button from 'material-ui/Button'
 
 class SearchBar extends Component {
   
@@ -37,21 +40,19 @@ class SearchBar extends Component {
   }
   
   render() {
-    const componentClasses = ['row', 'search-bar'];    
-    if (this.props.cars.length) { componentClasses.push('hide'); }
+    const componentClasses = ['search-bar'];    
+    if (!this.props.showSearch) { componentClasses.push('hide'); }
 
     return (
 			<div className={componentClasses.join(' ')}>
-				<form onSubmit={this.onFormSubmit} className="input-group">
-					<input
-						placeholder="Search for a car"
+				<form onSubmit={this.onFormSubmit} className="">
+					<Input
+						placeholder="Search make &amp; model"
 						value={this.state.term}
 						onChange={this.onInputChange}
-            className="form-control col-sm-12" 
+            className="col-sm-12" 
           />
-					<span className="input-group-btn">
-						<button type="submit" className="btn btn-primary">Search</button>
-					</span>
+          <Button type="submit" className="btn btn-primary">Search</Button>
 				</form>
 			</div>
 		);
