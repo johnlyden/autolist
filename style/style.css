@@ -1,18 +1,28 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  
+}
+
 .search-bar {
   max-height: 100px;
   opacity: 1.0;
   box-sizing: border-box;
-  transition: max-height 1500ms 500ms, opacity 500ms 500ms;
+  transition: max-height 500ms, opacity 500ms;
 }
 
 .search-bar.hide {
-  transition: max-height 1500ms 500ms, opacity 500ms 500ms;
+  transition: max-height 1500ms 500ms, opacity 500ms;
   opacity: 0.0;
   max-height: 0px;
 }
 
 .header-container {
   display: block;
+  margin-top: 20px;
+}
+
+.header-container.hide {
+  display: none;
 }
 
 .close-container {
@@ -26,13 +36,6 @@
   margin: 5px;
 }
 
-.header-container.hide {
-  display: none;
-}
-
-.search-bar.top {
-
-}
 
 form {
   text-align: center;
@@ -43,60 +46,42 @@ form.container {
   flex-direction: column;
 }
 
+
+@media only screen and (min-width: 767px) { 
+  .filter-container.index {
+    
+    margin-top: 50px;
+    
+  }
+}
+.btn-primary {
+  margin-top: 10px;
+}
+
 .logo-container {
   margin: 0 auto;
   width: 30%;
   margin-left: 35%;
 
 }
-
-@media only screen and (min-width: 767px) { 
-  .filter-container.index {
-
-    margin-top: 50px;
-
-  }
-}
-.btn-primary {
-  margin-top: 10px;
-}
 .logo-container.small {
   display: inline-block;
   width: 25%;
   margin: 10px 10px;
-  /* margin-left: 4%;
-  margin-right: 2%;
-  margin-bottom: 20px; */
-  /* margin-right: 10px; */
   transition: width 500ms 500ms, margin 500ms 500ms;
-  /* margin-left: 0;
-  text-align: left;
-  transition: margin-left 500ms 500ms, tex-align 500ms 500ms; */
 }
 
 .logo-container img {
   width: 90%;
-  /* height: auto; */
 }
 
 .logo-container.small img {
   width: 50%;
-  /* max-height: 0px; */
   transition: width 500ms 500ms;  
-}
-
-.logo {
-  /* background: red;
-  height: 200px;
-  margin: 0 auto; */
 }
 
 ul {
   padding: 0
-}
-body {
-  font-family: 'Open Sans', sans-serif;
-  
 }
 .thumb-container {
   max-width: 200px;
@@ -142,12 +127,10 @@ body {
   vertical-align: top;
   margin-top: 20px;
   width: 66%;
-  transition: opacity 500ms 500ms;  
 }
 
 .filter-container.index {
   height: 100%;
-  /* margin-top: 20px; */
   display: inline-block;
   opacity: 1;
   transition: opacity 500ms 1500ms, height 500ms 1500ms;

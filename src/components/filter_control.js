@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { filterPrice } from '../actions/index';
+import { filterPrice, emptyCars } from '../actions/index';
 import Input from 'material-ui/Input';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button'
@@ -14,18 +14,25 @@ class FilterControl extends Component {
       max: null    
     }
     this.onFormSubmit = this.onFormSubmit.bind(this);
-    
+    this.handleSearchAgainClick = this.handleSearchAgainClick.bind(this);
+    this.handleOnChangeMax = this.handleOnChangeMax.bind(this);
+    this.handleOnChangeMin = this.handleOnChangeMin.bind(this);
   }
 
-  handleOnChangeMin = (e) => {
+  handleOnChangeMin(e) {
     this.setState({
       min: e.target.value
     })
   }
-  handleOnChangeMax = (e) => {
+
+  handleOnChangeMax(e) {
     this.setState({
       max: e.target.value
     })
+  }
+
+  handleSearchAgainClick() {
+    this.props.emptyCars();
   }
 
   onFormSubmit(e) {
@@ -55,14 +62,14 @@ class FilterControl extends Component {
           className="" 
         />
         <Button type="submit" className="btn btn-primary">Filter by price</Button>
-        <Button type="submit" className="btn btn-primary">Search again</Button>
+        <Button type="" className="btn btn-primary" onClick={this.handleSearchAgainClick}>Search again</Button>
       </form>
     )
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ filterPrice }, dispatch );
+  return bindActionCreators({ filterPrice, emptyCars }, dispatch );
 }
 
 export default connect(null, mapDispatchToProps)(FilterControl);

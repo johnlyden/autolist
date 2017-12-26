@@ -3,12 +3,12 @@ import axios from 'axios';
 export const FETCH_CARS = 'FETCH_CARS';
 export const SELECT_CAR = 'SELECT_CAR';
 export const DEACTIVATE_CAR = 'DEACTIVATE_CAR';
+export const EMPTY_CARS_LIST = 'EMPTY_CARS_LIST';
 
 const ROOT_URL = 'https://autolist-test.herokuapp.com/search?'
 
 export function fetchCars(searchData) {
     let queryString = "";
-
     for (const [key, value] of Object.entries(searchData)) {
         if (value) {
             queryString += `&${key}=${value}`
@@ -16,7 +16,7 @@ export function fetchCars(searchData) {
     }
 
     const filterURL = `${ROOT_URL}${queryString}`
-    
+
     const request = axios.get(filterURL).catch((err) => {
         console.log('error with the request ', err);
     });
@@ -53,10 +53,15 @@ export function deActivateCar() {
 }
 
 export function goToNextPage(page) {
-    
-    debugger;
     return {
         type: FETCH_CARS,
         payload: request
+    }
+}
+
+export function emptyCars() {
+    return {
+        type: EMPTY_CARS_LIST,
+        payload: {}
     }
 }
