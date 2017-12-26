@@ -10,6 +10,7 @@ class App extends Component {
     super(props);
 
     this.isShowingCars = this.isShowingCars.bind(this);
+    this.activeCar = this.activeCar.bind(this);
     // this.shouldShowList = this.props.cars.length && !this.props.activeCar;
   }
 
@@ -18,16 +19,19 @@ class App extends Component {
     return Object.keys(cars).length === 0 && cars.constructor === Object 
   }
 
-
+  activeCar() {
+    if (!this.props.activeCar) { return null }
+    return this.props.cars[this.props.activeCar];
+  }
 
   render() {
     const small = this.props.cars.length ? true : false;
     return (
       <div>
-        <Header small={!this.isShowingCars()}/>
+        <Header small={!this.isShowingCars()} activeCar={this.props.activeCar}/>
         <SearchBar showSearch={this.isShowingCars()}/>
         <CarList />
-        <CarShow activeCar={this.props.activeCar} cars={this.props.cars}/>
+        <CarShow activeCar={this.activeCar()} cars={this.props.cars}/>
       </div>
     );
   }

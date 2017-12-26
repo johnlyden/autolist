@@ -8,8 +8,10 @@ export default (props) => {
       myClass="small"
       yoClass="index"
     }
+    const componentClasses = ['row header-container'];    
+    if (props.activeCar) {componentClasses.push('hide')}
     return (
-      <div className={`row header-container`}>
+      <div className={componentClasses.join(' ')}>
         <div className={`logo-container ${myClass}`}>
           <Logo />
         </div>

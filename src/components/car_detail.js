@@ -5,12 +5,10 @@ import Card, { CardActions, CardContent } from 'material-ui/Card';
 export default class CarDetail extends Component {
   constructor(props) {
     super(props);
-
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    console.log(e);
     const carId = e.currentTarget.id;
     this.props.selectCar(carId);
   }
@@ -19,6 +17,7 @@ export default class CarDetail extends Component {
     const cardStyle= {
       'marginBottom': '20px'
     }
+    
     return (
       <Card onClick={this.handleClick} id={this.props.id} style={cardStyle}
         >

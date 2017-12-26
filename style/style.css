@@ -12,11 +12,11 @@
 }
 
 .header-container {
-  /* margin-bottom: 20px; */
+  display: block;
 }
 
-.header-container.index {
-  /* display: flex; */
+.header-container.hide {
+  display: none;
 }
 
 .search-bar.top {
