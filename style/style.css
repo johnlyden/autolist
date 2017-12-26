@@ -12,7 +12,7 @@
 }
 
 .header-container {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .header-container.index {
@@ -34,11 +34,21 @@ form.container {
 
 .logo-container {
   margin: 0 auto;
-  width: 50%;
-  margin-left: 25%;
+  width: 30%;
+  margin-left: 35%;
 
 }
 
+@media only screen and (min-width: 767px) { 
+  .filter-container.index {
+
+    margin-top: 50px;
+
+  }
+}
+.btn-primary {
+  margin-top: 10px;
+}
 .logo-container.small {
   display: inline-block;
   width: 25%;

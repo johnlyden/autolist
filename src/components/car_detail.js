@@ -16,8 +16,11 @@ export default class CarDetail extends Component {
   }
 
   render() {
+    const cardStyle= {
+      'marginBottom': '20px'
+    }
     return (
-      <Card onClick={this.handleClick} id={this.props.id}
+      <Card onClick={this.handleClick} id={this.props.id} style={cardStyle}
         >
         <div className="row">
           <div className="col-md-3 col-sm-12 thumb-container">

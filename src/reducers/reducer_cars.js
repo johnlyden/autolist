@@ -1,8 +1,10 @@
 import { FETCH_CARS } from '../actions/index';
-export default function (state = [], action) {
+import _ from 'lodash';
+
+export default function (state = {}, action) {
 	switch (action.type) {
 		case FETCH_CARS:
-			return action.payload.data.records;
+			return _.mapKeys(action.payload.data.records, 'id');
 	}
 	return state;
 }
