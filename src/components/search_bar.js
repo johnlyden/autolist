@@ -6,19 +6,29 @@ import Input from 'material-ui/Input';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button'
 
+/** class representing search bar */
 class SearchBar extends Component {
   
   constructor(props) {
     super(props);
+
     this.state = { term: '' };
     this.onInputChange = this.onInputChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
+  /**
+   * set state of current term when input changes
+   * @param { object } event 
+   */
   onInputChange(event) {
 		this.setState({ term: event.target.value });
   }
 
+  /**
+   * onSubmit, call prop function to fetch cars - clear about search box
+   * @param { object } event 
+   */
   onFormSubmit(event) {
 		event.preventDefault();
     const data = this.parseSearch();
@@ -29,9 +39,15 @@ class SearchBar extends Component {
   /**
    * examine the search term and create an object with
    * make, model, color, year
+   * right now just choosing first word for make and second word for model
+   * 
+   * whatever object is passed in, will be a key/value query param on the GET request
+   * 
+   * TODO:  make this smarter
    */
   parseSearch() {
     const searchTerm = this.state.term.split(" ");
+
     const data = { 
       make: searchTerm[0],
       model: searchTerm[1]
@@ -58,6 +74,7 @@ class SearchBar extends Component {
 		);
   }
 }
+
 function mapStateToProps(state) {
   return { 
     cars: state.cars

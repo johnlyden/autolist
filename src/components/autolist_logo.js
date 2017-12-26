@@ -1,5 +1,6 @@
 import React from 'react';
 
+/** exporting logo svg */
 export default () => {
   return (
 

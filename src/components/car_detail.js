@@ -1,19 +1,24 @@
 import React, {Component} from 'react';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 
-
+/** class representing a list view item of the car detail */
 export default class CarDetail extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
 
+  /**
+   * calls selectCar prop function and passes the id of car that was clicked
+   * @param { object } e 
+   */
   handleClick(e) {
     const carId = e.currentTarget.id;
     this.props.selectCar(carId);
   }
 
   render() {
+    
     const cardStyle= {
       'marginBottom': '20px'
     }
