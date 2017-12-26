@@ -55,6 +55,7 @@ class FilterControl extends Component {
           className="" 
         />
         <Button type="submit" className="btn btn-primary">Filter by price</Button>
+        <Button type="submit" className="btn btn-primary">Search again</Button>
       </form>
     )
   }

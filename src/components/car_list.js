@@ -10,14 +10,14 @@ class CarList extends Component {
     super(props);
     this.renderCar = this.renderCar.bind(this);
     this.renderCars = this.renderCars.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleNavClick = this.handleNavClick.bind(this);
+    this.renderNavButtons = this.renderNavButtons.bind(this);
     this.state = {
       page: 1
     }
   }
 
   renderCar(carData) {
-    // debugger;
     return (
       <CarDetail 
         carData={carData}
@@ -30,34 +30,71 @@ class CarList extends Component {
 
   renderCars(cars) {
     for (var key in cars) {
-      console.log(key + " -> " + cars[key]);
       const carData = cars[key]
       this.renderCar(carData);
-      
     } 
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    this.advancePage();
+  handleNavClick(e) {
+    const direction = e.currentTarget.id;
+    this.advancePage(direction);
   }
 
-  advancePage() {
-    const nextPage = this.state.page + 1;
+  advancePage(direction) {
+    const currentPage = this.state.page;
+    let nextPage;
+    if (direction === "next") {
+      nextPage = currentPage + 1;
+    } else {
+      nextPage = currentPage - 1;
+    }
+
     this.setState({
       page: nextPage
     })
+
     this.props.fetchCars({
       'page': nextPage
     })
   }
 
+  renderNavButtons() {
+    const buttonStyles = {
+      'marginBottom': '20px',
+      'marginTop': '20px'
+    }
+    if (this.state.page > 1) {
+      return (
+        <div>
+          <Button
+          id="prev"
+          style={buttonStyles}
+          onClick={this.handleNavClick}>Prev page
+          </Button>
+          <Button
+          id="next"
+          style={buttonStyles}
+          onClick={this.handleNavClick}>next page
+          </Button>
+        </div>
+      )
+    }
+    return (
+      <Button
+      id="next"
+      style={buttonStyles}
+      onClick={this.handleNavClick}>next page
+      </Button>
+    )
+  }
+
   render() {
-    if (this.props.activeCar) {
+    if (this.props.activeCar || Object.keys(this.props.cars).length === 0) {
       return <div></div>
     }
-    const buttonStyles = {
-    }
+
+    const componentClasses = ['car-list-container '];    
+
     const carsObj = this.props.cars;
 
     const carsArray = Object.keys(carsObj).map((key) => {
@@ -65,20 +102,17 @@ class CarList extends Component {
     });
 
     return (
-      <div>
-        <Button
-        style={buttonStyles}
-        onClick={this.handleClick}>next page
-      
-        </Button>
+      <div className={componentClasses.join(' ')}>
+        
+        {this.renderNavButtons()}
+        
         <ul>
           {carsArray.map(this.renderCar)}
         </ul>
-        <Button
-        style={buttonStyles} 
-        onClick={this.handleClick}>next page
-        
-        </Button>
+
+        {this.renderNavButtons()}
+
+
       </div>
     )
   }
