@@ -5,6 +5,11 @@ export default class CarShow extends Component {
   constructor(props){
     super(props)
     this.renderCar = this.renderCar.bind(this);
+    this.handleCloseClick = this.handleCloseClick.bind(this);
+  }
+
+  handleCloseClick() {
+    this.props.deActivateCar();
   }
 
   renderCar(carData) {
@@ -22,13 +27,21 @@ export default class CarShow extends Component {
             vin,
             trim,
              year 
-    } = carData 
+    } = carData
+    const cardStyle = {
+      'position': 'relative',
+      'marginTop': '50px'
+    }
     return (
       <div>
-        <Card>
+        <Card style={cardStyle}>
+        <div className="close-container">
+          <span className="close-link" onClick={this.handleCloseClick}>X</span>
+        </div>
         <h3>{`${year} ${make} ${model}`}</h3>
         <h4>{condition}</h4>
-        <h4>{mileage}</h4>
+        <h5>{price}</h5>
+        <p>{`${city}, ${state}`}</p>
         <img src={primary_photo_url} />
         </Card>
       </div>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { deActivateCar } from '../actions/index';
 import SearchBar from './search_bar';
 import CarList from './car_list';
 import Header from './header';
@@ -11,7 +13,6 @@ class App extends Component {
 
     this.isShowingCars = this.isShowingCars.bind(this);
     this.activeCar = this.activeCar.bind(this);
-    // this.shouldShowList = this.props.cars.length && !this.props.activeCar;
   }
 
   isShowingCars() {
@@ -24,6 +25,10 @@ class App extends Component {
     return this.props.cars[this.props.activeCar];
   }
 
+  deActivateCar() {
+    this.props.removeActiveCar()
+  }
+
   render() {
     const small = this.props.cars.length ? true : false;
     return (
@@ -31,7 +36,7 @@ class App extends Component {
         <Header small={!this.isShowingCars()} activeCar={this.props.activeCar}/>
         <SearchBar showSearch={this.isShowingCars()}/>
         <CarList />
-        <CarShow activeCar={this.activeCar()} cars={this.props.cars}/>
+        <CarShow activeCar={this.activeCar()} cars={this.props.cars} deActivateCar={this.props.deActivateCar}/>
       </div>
     );
   }
@@ -44,4 +49,8 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ deActivateCar }, dispatch );
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

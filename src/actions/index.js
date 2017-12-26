@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const FETCH_CARS = 'FETCH_CARS';
 export const SELECT_CAR = 'SELECT_CAR';
-export const FILTER_PRICE = 'FILTER_PRICE';
+export const DEACTIVATE_CAR = 'DEACTIVATE_CAR';
 
 const ROOT_URL = 'https://autolist-test.herokuapp.com/search?'
 
@@ -42,6 +42,13 @@ export function filterPrice(min, max) {
     return {
         type: FETCH_CARS,
         payload: request
+    }
+}
+
+export function deActivateCar() {
+    return {
+        type: DEACTIVATE_CAR,
+        payload: null
     }
 }
 
