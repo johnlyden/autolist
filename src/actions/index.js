@@ -35,7 +35,9 @@ export function selectCar(carId) {
 }
 
 export function filterPrice(min, max) {
-    const filterURL = `${ROOT_URL}price_min=${min}&price_max=${max}`;
+    const minString = min ? `&price_min=${min}` : '';
+    const maxString = max ? `&price_max=${max}` : '';
+    const filterURL = `${ROOT_URL}${minString}${maxString}`;
     const request = axios.get(filterURL).catch((err) => {
         console.log('error with the request ', err);
     });
