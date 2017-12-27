@@ -9,9 +9,10 @@ export default (props) => {
   let logoClass, filterClass;
 
   const componentClasses = ['row header-container']; 
+  
   // if there is an activeCar hide the whole component   
   if (props.activeCar) {componentClasses.push('hide')}
-  if (props.indexView) {
+  if (!props.showingCars) {
     logoClass="small"
     filterClass="index"
   }

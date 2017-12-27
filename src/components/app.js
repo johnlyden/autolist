@@ -35,17 +35,10 @@ class App extends Component {
     return this.props.cars[this.props.activeCar];
   }
 
-  /**
-   * calls function in props that will remove activeCar from application state
-   */
-  deActivateCar() {
-    this.props.removeActiveCar()
-  }
-
   render() {
     return (
       <div>
-        <Header indexView={!this.isShowingCars()} activeCar={this.props.activeCar}/>
+        <Header showingCars={this.isShowingCars()} activeCar={this.props.activeCar}/>
         <SearchBar showSearch={this.isShowingCars()}/>
         <CarList />
         <CarShow activeCar={this.activeCar()} cars={this.props.cars} deActivateCar={this.props.deActivateCar}/>
