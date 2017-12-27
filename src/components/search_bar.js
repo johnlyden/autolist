@@ -75,14 +75,8 @@ class SearchBar extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { 
-    cars: state.cars
-  };
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchCars }, dispatch );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default connect(null, mapDispatchToProps)(SearchBar);
