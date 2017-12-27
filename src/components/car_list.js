@@ -13,6 +13,7 @@ class CarList extends Component {
     this.renderCar = this.renderCar.bind(this);
     this.handleNavClick = this.handleNavClick.bind(this);
     this.renderNavButtons = this.renderNavButtons.bind(this);
+    // set initial state for carList pagination
     this.state = {
       page: 1
     }
@@ -123,12 +124,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ selectCar, fetchCars }, dispatch);
 }
 
-function mapStateToProps(state) {
-  return { 
-    cars: state.cars,
-    activeCar: state.selectedCar
-  };
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(CarList);
+export default connect(null, mapDispatchToProps)(CarList);

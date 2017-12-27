@@ -14,7 +14,7 @@ class App extends Component {
     super(props);
 
     this.isShowingCars = this.isShowingCars.bind(this);
-    this.activeCar = this.activeCar.bind(this);
+    this.getActiveCar = this.getActiveCar.bind(this);
   }
 
   /**
@@ -30,7 +30,7 @@ class App extends Component {
    * uses the id of the activeCar stored in application state
    * looks up information aboute active car by ID
    */
-  activeCar() {
+  getActiveCar() {
     if (!this.props.activeCar) { return null }
     return this.props.cars[this.props.activeCar];
   }
@@ -40,8 +40,8 @@ class App extends Component {
       <div>
         <Header showingCars={this.isShowingCars()} activeCar={this.props.activeCar}/>
         <SearchBar showSearch={this.isShowingCars()}/>
-        <CarList />
-        <CarShow activeCar={this.activeCar()} cars={this.props.cars} deActivateCar={this.props.deActivateCar}/>
+        <CarList cars={this.props.cars} activeCar={this.props.activeCar}/> 
+        <CarShow activeCar={this.getActiveCar()} deActivateCar={this.props.deActivateCar}/>
       </div>
     );
   }
