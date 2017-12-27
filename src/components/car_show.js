@@ -49,7 +49,9 @@ export default class CarShow extends Component {
           <h4>{condition}</h4>
           <h5>{price}</h5>
           <p>{`${city}, ${state}`}</p>
-          <img src={primary_photo_url} />
+          <div className="image-container">
+            <img src={primary_photo_url} />
+          </div>
         </Card>
       </div>
     )

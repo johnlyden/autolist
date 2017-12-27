@@ -143,3 +143,11 @@ ul {
 .rangeslider {
   display: inline-block !important;
 }
+
+.image-container {
+  width: 100%;
+}
+
+.image-container img {
+  width: 100%;
+}
