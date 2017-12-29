@@ -60,14 +60,6 @@ export function deActivateCar() {
 	}
 }
 
-/** action creator for goign to next page of paginated list of cars */
-export function goToNextPage(page) {
-	return {
-		type: FETCH_CARS,
-		payload: request
-	}
-}
-
 /** action creator for emptying hte list of cars held in app state */
 export function emptyCars() {
 	return {
